@@ -1,6 +1,6 @@
 import Calendar from 'react-calendar';
 import { useState } from 'react';
-import 'react-calendar/dist/Calendar.css'; // Import default styles
+// import 'react-calendar/dist/Calendar.css'; // Import default styles
 import '../styles/CalendarView.css'; // Import custom styles
 
 type Props = {
@@ -26,7 +26,7 @@ const CalendarView = ({ calendarDates }: Props) => {
                 const isSpecialDay = view === 'month' && calendarDates.some(d => isSameDay(d, date));
                 
                 if (isSpecialDay) {
-                  console.log('Special day found:', date.toDateString());
+                  // console.log('Special day found:', date.toDateString());
                   return 'special-day';
                 }
                 return undefined;
