@@ -1,33 +1,39 @@
-import { useState } from 'react';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; //default styling
-import '../styles/CalendarView.css';
+import { useState } from 'react';
+import 'react-calendar/dist/Calendar.css'; // Import default styles
+import '../styles/CalendarView.css'; // Import custom styles
 
 type Props = {
-  meetingDates: Date[];
+  calendarDates: Date[];
 };
 
-const CalendarView = ({ meetingDates }: Props) => {
+const CalendarView = ({ calendarDates }: Props) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-  // Format helper to match dates by string
   const isSameDay = (d1: Date, d2: Date) => {
     return d1.toDateString() === d2.toDateString();
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-full py-8">
-      <h2 className="text-2xl mb-6 font-semibold text-white">📅 Our Special Days</h2>
-      <div className="bg-pink-500 p-6 rounded-xl shadow-lg w-full max-w-md">
-        <Calendar
-          onClickDay={setSelectedDate}
-          tileClassName={({ date, view }) =>
-            view === 'month' && meetingDates.some(d => isSameDay(d, date))
-              ? 'bg-pink-700 text-white font-bold rounded-full'
-              : ''
-          }
-          className="border-0"
-        />
+    <div className="text-center">
+      <h2 className="text-2xl mb-4 font-semibold text-white">📅 Our Special Days</h2>
+      <div className="flex justify-center">
+        <div className="bg-pink-500 p-4 rounded-2xl shadow-md">
+          <Calendar
+            onClickDay={setSelectedDate}
+            tileClassName={({ date, view }) => {
+              
+                const isSpecialDay = view === 'month' && calendarDates.some(d => isSameDay(d, date));
+                
+                if (isSpecialDay) {
+                  console.log('Special day found:', date.toDateString());
+                  return 'special-day';
+                }
+                return undefined;
+            }}
+            className="text-white"
+          />
+        </div>
       </div>
 
       {selectedDate && (

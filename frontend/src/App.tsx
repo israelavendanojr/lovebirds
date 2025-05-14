@@ -16,7 +16,7 @@ function App() {
         </h1>
 
         {/* Calendar */}
-        <CalendarView meetingDates={calendarDates} />
+        <CalendarView calendarDates={calendarDates} />
 
       </div>
     </div>
