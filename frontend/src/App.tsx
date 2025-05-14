@@ -2,33 +2,25 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import CalendarView from './components/CalendarView';
+import { calendarDates } from './data/calendar_dates.ts';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-gradient-to-b from-[#1a1c2c] to-[#2f2a4f] text-white font-sans">
+      <div className="max-w-3xl mx-auto p-6 space-y-10">
+        
+        {/* Welcome Message */}
+        <h1 className="text-3xl md:text-4xl font-bold text-center">
+          💖 Welcome to Our LoveBirds Space 💖
+        </h1>
+
+        {/* Calendar */}
+        <CalendarView meetingDates={calendarDates} />
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
+    
   )
 }
 
