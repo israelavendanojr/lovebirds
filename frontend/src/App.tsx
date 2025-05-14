@@ -5,6 +5,7 @@ import './App.css'
 import CalendarView from './components/CalendarView';
 import { calendarDates } from './data/calendar_dates.ts';
 import CountdownTimer from './components/CountdownTimer.tsx';
+import ParticleBackground from './components/ParticleBackground.tsx';
 
 const getNextDate = (dates: Date[]) => {
     const today = new Date();
@@ -33,6 +34,7 @@ function App() {
     const nextDate = getNextDate(calendarDates);
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a1c2c] to-[#2f2a4f] text-white font-sans">
+      <ParticleBackground />
       <div className="max-w-3xl mx-auto p-6 space-y-10">
         
         {/* Welcome Message */}
