@@ -25,16 +25,19 @@ export function ParticleBackground() {
 
     // Set canvas size
     const resizeCanvas = () => {
-      if (canvas) {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
-        ctx.scale(dpr, dpr);
-      }
+      if (!canvas || !ctx) return;
+    
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+    
+      // 💥 Fix: Reset before scaling again
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
     };
-
+    
     // Initial resize
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -199,12 +202,12 @@ export function ParticleBackground() {
   return (
     <div 
       style={{ 
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex: 0,
+        zIndex: -1,
         pointerEvents: 'none',
         overflow: 'hidden'
       }}

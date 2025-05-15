@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/globals.css';
-import './index.css';
+import './styles/index.css';
 
 // Enable smooth scrolling for the whole app
 document.documentElement.style.scrollBehavior = 'smooth';

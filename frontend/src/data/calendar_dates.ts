@@ -1,6 +1,7 @@
-// Important dates to mark on the calendar
-export const importantDates = [
-  '2023-01-01', // Example: New Year's Day
-  '2023-02-14', // Example: Valentine's Day
-  '2023-12-25', // Example: Christmas Day
+export const calendarDates = [
+  new Date(2025, 4, 14),
+  new Date(2025, 4, 17),
+  new Date(2025, 4, 23),
+  new Date(2025, 4, 24),
+  new Date(2025, 4, 25),
 ];

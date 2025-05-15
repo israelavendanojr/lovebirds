@@ -11,6 +11,10 @@ module.exports = {
         'dancing': ['Dancing Script', 'cursive'],
         'poppins': ['Poppins', 'sans-serif'],
       },
+      zIndex: {
+        '-1': '-1',
+        '-2': '-2',
+      },      
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-up': 'float-up 6s ease-in-out infinite',

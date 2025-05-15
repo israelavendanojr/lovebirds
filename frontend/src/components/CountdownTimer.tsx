@@ -1,52 +1,53 @@
 import { useEffect, useState } from 'react';
 
-export function CountdownTimer({ targetDate }: { targetDate: Date }) {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+type Props = {
+  calendarDates: Date[];
+};
+
+const getNextDate = (dates: Date[]) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const sorted = [...dates].sort((a, b) => a.getTime() - b.getTime());
+  for (const date of sorted) {
+    const d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+
+    if (d.getTime() === today.getTime()) return { nextDate: d, isToday: true };
+    if (d.getTime() > today.getTime()) return { nextDate: d, isToday: false };
+  }
+
+  return { nextDate: null, isToday: false };
+};
+
+const CountdownTimer = ({ calendarDates }: Props) => {
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
+  const [isToday, setIsToday] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+    const { nextDate, isToday } = getNextDate(calendarDates);
+    setIsToday(isToday);
 
-      if (distance < 0) {
-        clearInterval(interval);
-        return;
-      }
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [targetDate]);
+    if (!isToday && nextDate) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const diff = Math.ceil((nextDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+      setDaysLeft(diff);
+    }
+  }, [calendarDates]);
 
   return (
-    <div className="flex gap-4">
-      <div className="text-center">
-        <div className="text-4xl font-bold">{timeLeft.days}</div>
-        <div className="text-sm">Days</div>
-      </div>
-      <div className="text-center">
-        <div className="text-4xl font-bold">{timeLeft.hours}</div>
-        <div className="text-sm">Hours</div>
-      </div>
-      <div className="text-center">
-        <div className="text-4xl font-bold">{timeLeft.minutes}</div>
-        <div className="text-sm">Minutes</div>
-      </div>
-      <div className="text-center">
-        <div className="text-4xl font-bold">{timeLeft.seconds}</div>
-        <div className="text-sm">Seconds</div>
-      </div>
+    <div className="flex flex-col items-center justify-center">
+      {isToday ? (
+        <h2 className="text-3xl font-bold text-pink-300 animate-pulse">🎉 Today is a Special Day! 🎉</h2>
+      ) : (
+        <div className="flex flex-col items-center">
+          <div className="text-7xl font-bold text-white mb-2">{daysLeft}</div>
+          <div className="text-2xl text-pink-300">{daysLeft === 1 ? 'Day' : 'Days'}</div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default CountdownTimer;
