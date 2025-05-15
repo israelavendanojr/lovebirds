@@ -23,8 +23,8 @@ const CalendarView = ({ calendarDates }: Props) => {
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-pink-200/10 text-white">
-      <h2 className="text-xl font-semibold mb-4 text-pink-200 text-center">Our Special Days</h2>
+    <div className="rounded-2xl p-6 shadow-xl border border-pink-200/10">
+      <h2 className="text-xl font-semibold mb-4 text-pink-200 text-center">Calendar</h2>
       <Calendar
         tileContent={tileContent}
         calendarType="gregory"
