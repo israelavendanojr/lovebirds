@@ -1,8 +1,0 @@
-Dear Israel,
-
-This is test text for my letter. It should keep all formatting.
-
-Including breaks, spaces, commas, etc.
-
-Best,
-Vanessa
