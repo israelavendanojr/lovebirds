@@ -7,6 +7,7 @@ import { calendarDates } from './data/calendar_dates.ts';
 import CountdownTimer from './components/CountdownTimer.tsx';
 import ParticleBackground from './components/ParticleBackground.tsx';
 import LetterFromFile from './components/LetterFromFile.tsx';
+import ThoughtGenerator from './components/ThoughtGenerator.tsx';
 
 const getNextDate = (dates: Date[]) => {
     const today = new Date();
@@ -52,6 +53,11 @@ function App() {
 
         {/* Letter */}
         <LetterFromFile filename="letter1_Israel.txt" />
+        <LetterFromFile filename="letter1_Vanessa.txt" />
+
+        {/* Thought Generator */}
+        <ThoughtGenerator />
+
 
       </div>
     </div>
