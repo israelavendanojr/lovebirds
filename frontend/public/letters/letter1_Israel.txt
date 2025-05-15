@@ -1,0 +1,8 @@
+Dear Person,
+
+This is test text for my letter. It should keep all formatting.
+
+Including breaks, spaces, commas, etc.
+
+Best,
+Israel

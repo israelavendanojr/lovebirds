@@ -6,6 +6,7 @@ import CalendarView from './components/CalendarView';
 import { calendarDates } from './data/calendar_dates.ts';
 import CountdownTimer from './components/CountdownTimer.tsx';
 import ParticleBackground from './components/ParticleBackground.tsx';
+import LetterFromFile from './components/LetterFromFile.tsx';
 
 const getNextDate = (dates: Date[]) => {
     const today = new Date();
@@ -39,7 +40,7 @@ function App() {
         
         {/* Welcome Message */}
         <h1 className="text-3xl md:text-4xl font-bold text-center">
-          💖 Welcome to Our LoveBirds Space 💖
+          💖 Welcome to Our Space 💖
         </h1>
 
         {/* Timer */}
@@ -48,6 +49,9 @@ function App() {
 
         {/* Calendar */}
         <CalendarView calendarDates={calendarDates} />
+
+        {/* Letter */}
+        <LetterFromFile filename="letter1_Israel.txt" />
 
       </div>
     </div>

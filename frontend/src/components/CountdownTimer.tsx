@@ -39,7 +39,7 @@ const CountdownTimer = ({ targetDate }: Props) => {
   return (
     <div className="text-center">
       <h2 className="text-2xl mb-2">
-        {isToday ? "🎉 Today's the Day! 🎉" : "⏳ Countdown to Our Next Day Together"}
+        {isToday ? "🎉 Today's the Day! 🎉" : "⏳ Countdown to Our Next Day"}
       </h2>
       {!isToday && (
         <div className="text-3xl font-bold">
