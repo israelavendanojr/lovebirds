@@ -39,13 +39,40 @@ const CountdownTimer = ({ targetDate }: Props) => {
 
   const today = new Date();
   const isToday = isSameDay(today, targetDate);
+  const formattedDate = targetDate.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
 
   return (
-    <div className="text-center">
+    <div className="w-full">
       {isToday ? (
-        <div className="text-3xl font-bold">Today's the Day!</div>
+        <div className="text-center">
+          <div className="text-6xl md:text-7xl font-bold text-pink-300 font-['Dancing_Script'] mb-4 animate-pulse">
+            Today's the Day! 🌟
+          </div>
+          <p className="text-pink-200 text-xl md:text-2xl">
+            {formattedDate}
+          </p>
+        </div>
       ) : (
-        <div className="text-3xl font-bold">{timeLeft.days} Days</div>
+        <div className="flex flex-col items-center">
+          <div className="relative">
+            <div className="absolute inset-0 bg-pink-500/20 rounded-full blur-xl -z-10"></div>
+            <div className="text-8xl md:text-9xl font-bold text-pink-300 font-['Dancing_Script'] mb-2 leading-none">
+              {timeLeft.days}
+            </div>
+          </div>
+          <p className="text-pink-200 text-3xl md:text-4xl mt-2 mb-6 font-light">
+            {timeLeft.days === 1 ? 'Day' : 'Days'}
+          </p>
+          <div className="bg-pink-900/30 px-6 py-3 rounded-full border border-pink-200/20">
+            <p className="text-pink-200 text-lg md:text-xl">
+              Until {formattedDate}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
