@@ -1,6 +1,7 @@
 import { ParticleBackground } from '@/components/ParticleBackground';
 import CountdownTimer from '@/components/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
+import CalendarView from '@/components/CalendarView';
 
 const App = () => {
   return (
@@ -14,7 +15,10 @@ const App = () => {
       {/* Main content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
         <CountdownTimer calendarDates={calendarDates} />
+
+        <CalendarView calendarDates={calendarDates} />
       </main>
+
     </div>
   );
 };

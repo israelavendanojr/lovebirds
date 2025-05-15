@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Remove calendar background */
+.react-calendar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* default text color for weekend days */
+.react-calendar__month-view__days__day--weekend {
+    color: inherit !important; 
+}
+
+/* hide days from previous and next months */
+.hidden-day {
+    opacity: 0;
+}
