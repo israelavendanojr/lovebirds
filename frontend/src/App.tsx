@@ -73,59 +73,78 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-x-hidden" style={{ position: 'relative', zIndex: 1 }}>
       <ParticleBackground />
       
-      <header className="relative z-10 py-12 text-center">
-        <div className="relative inline-block">
-          <Star className="absolute -top-6 -left-6 w-8 h-8 text-yellow-300 animate-pulse" fill="currentColor" />
-          <Star className="absolute -bottom-4 -right-4 w-6 h-6 text-blue-300 animate-pulse" fill="currentColor" />
-          <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 font-['Dancing_Script'] mb-3">
-            Celestial Countdown
-          </h1>
-        </div>
-        <p className="text-xl text-blue-100/90 mt-4 max-w-2xl mx-auto leading-relaxed">
-          Our love story written in the stars
-        </p>
-        <div className="mt-6 flex justify-center space-x-4">
-          <div className="flex items-center text-blue-100/80">
-            <CalendarIcon className="w-5 h-5 mr-2" />
-            <span>{format(currentTime, 'MMMM d, yyyy')}</span>
+      <div className="relative z-10 flex flex-col min-h-screen" style={{ position: 'relative' }}>
+        <div className="min-h-screen flex flex-col">
+          <header className="py-12 text-center">
+            <div className="relative inline-block">
+            <Star className="absolute -top-6 -left-6 w-8 h-8 text-yellow-300 animate-pulse" fill="currentColor" />
+            <Star className="absolute -bottom-4 -right-4 w-6 h-6 text-blue-300 animate-pulse" fill="currentColor" />
+            <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 font-['Dancing_Script'] mb-3">
+              Celestial Countdown
+            </h1>
           </div>
-          <div className="flex items-center text-purple-100/80">
-            <Clock className="w-5 h-5 mr-2" />
-            <span>{format(currentTime, 'h:mm:ss a')}</span>
-          </div>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
-        {/* Countdown Section */}
-        <section className="backdrop-blur-sm bg-white/5 rounded-2xl shadow-2xl p-8 mb-12 border border-white/10 transform transition-all hover:scale-[1.01] hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-3 rounded-full bg-blue-500/20 mr-4">
-              <Star className="w-6 h-6 text-blue-300" fill="currentColor" />
+          <p className="text-xl text-blue-100/90 mt-4 max-w-2xl mx-auto leading-relaxed">
+            Our love story written in the stars
+          </p>
+          <div className="mt-6 flex justify-center space-x-4">
+            <div className="flex items-center text-blue-100/80">
+              <CalendarIcon className="w-5 h-5 mr-2" />
+              <span>{format(currentTime, 'MMMM d, yyyy')}</span>
             </div>
-            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-200">
-              Countdown to Forever
-            </h2>
+            <div className="flex items-center text-purple-100/80">
+              <Clock className="w-5 h-5 mr-2" />
+              <span>{format(currentTime, 'h:mm:ss a')}</span>
+            </div>
           </div>
-          <CountdownTimer />
-        </section>
-      </main>
+        </header>
 
-      <footer className="relative z-10 py-8 text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <div className="border-t border-white/10 pt-6">
-            <p className="text-blue-100/80 text-sm">
-              Made with <Heart className="inline w-4 h-4 text-pink-400" fill="currentColor" /> for you
-            </p>
-            <p className="text-white/50 text-xs mt-2">
-              Every moment with you is written in the stars
-            </p>
+        <main className="flex-1">
+          <div className="container mx-auto px-4 py-8">
+            <CountdownTimer />
+            
+            {/* Example content sections */}
+            <section className="py-20">
+              <h2 className="text-3xl font-bold text-center mb-8">Our Journey</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <h3 className="text-xl font-semibold mb-3">Milestone {item}</h3>
+                    <p className="text-blue-100/80">
+                      This is a sample milestone. Your special moments will be displayed here.
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            
+            <section className="py-20">
+              <h2 className="text-3xl font-bold text-center mb-8">Memories</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+                  <div key={item} className="aspect-square bg-white/5 rounded-lg border border-white/10 flex items-center justify-center">
+                    <span className="text-blue-200/50">Photo {item}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
+        </main>
+
+        <footer className="py-8 text-center border-t border-white/10 mt-12">
+            <div className="container mx-auto px-4">
+              <p className="text-blue-100/80 text-sm">
+                Made with <Heart className="inline w-4 h-4 text-pink-400" fill="currentColor" /> for you
+              </p>
+              <p className="text-white/50 text-xs mt-2">
+                Every moment with you is written in the stars
+              </p>
+            </div>
+          </footer>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };

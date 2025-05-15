@@ -197,13 +197,29 @@ export function ParticleBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-gradient-to-b from-[#0a0c24] via-[#1a1b3a] to-[#2d1b50]">
+    <div 
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 0,
+        pointerEvents: 'none',
+        overflow: 'hidden'
+      }}
+    >
       <canvas
         ref={canvasRef}
-        className="absolute top-0 left-0 w-full h-full opacity-70"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          display: 'block'
+        }}
       />
-      {/* Add a subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/10" />
     </div>
   );
 }
