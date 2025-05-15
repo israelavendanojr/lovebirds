@@ -6,15 +6,19 @@ type Props = {
 
 const CountdownTimer = ({ targetDate }: Props) => {
   const calculateTimeLeft = () => {
-    const now = new Date().getTime();
-    const distance = targetDate.getTime() - now;
+    const today = new Date();
+    const target = new Date(targetDate);
+
+    // Strip time for both dates
+    today.setHours(0, 0, 0, 0);
+    target.setHours(0, 0, 0, 0);
+
+    const msPerDay = 1000 * 60 * 60 * 24;
+    const distance = target.getTime() - today.getTime();
 
     return {
       distance,
-      days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((distance / (1000 * 60)) % 60),
-      seconds: Math.floor((distance / 1000) % 60),
+      days: Math.floor(distance / msPerDay),
     };
   };
 
@@ -38,13 +42,10 @@ const CountdownTimer = ({ targetDate }: Props) => {
 
   return (
     <div className="text-center">
-      <h2 className="text-2xl mb-2">
-        {isToday ? "🎉 Today's the Day! 🎉" : "⏳ Countdown to Our Next Day"}
-      </h2>
-      {!isToday && (
-        <div className="text-3xl font-bold">
-          {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
-        </div>
+      {isToday ? (
+        <div className="text-3xl font-bold">Today's the Day!</div>
+      ) : (
+        <div className="text-3xl font-bold">{timeLeft.days} Days</div>
       )}
     </div>
   );
