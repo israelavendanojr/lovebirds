@@ -1,0 +1,171 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base styles */
+:root {
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Dancing Script', 'Times New Roman', Times, serif;
+  
+  --background: 240 10% 10%;
+  --foreground: 0 0% 100%;
+  --muted: 240 10% 20%;
+  --muted-foreground: 240 5% 64.9%;
+  --primary: 260 80% 70%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 20% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 260 80% 60%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 20% 25%;
+  --input: 240 20% 30%;
+  --ring: 260 80% 70%;
+  --radius: 0.5rem;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(at 80% 0%, hsla(250, 100%, 20%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(260, 100%, 20%, 0.2) 0px, transparent 50%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-dancing {
+  font-family: var(--font-serif);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-0.5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Utility classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float-delay {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    hsl(210, 90%, 80%),
+    hsl(260, 80%, 80%),
+    hsl(320, 90%, 80%)
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsla(240, 10%, 20%, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, hsl(210, 90%, 80%), hsl(260, 80%, 80%));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, hsl(210, 90%, 70%), hsl(260, 80%, 70%));
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to bottom, hsl(210, 90%, 60%), hsl(260, 80%, 60%));
+}
+
+/* Custom selection */
+::selection {
+  background-color: hsl(210, 90%, 80%);
+  color: white;
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(210, 90%, 80%), 0 0 0 4px hsla(210, 90%, 50%, 0.2);
+}
+
+/* Glow effect for countdown */
+.glow {
+  text-shadow: 0 0 10px rgba(199, 210, 254, 0.5),
+               0 0 20px rgba(199, 210, 254, 0.3),
+               0 0 30px rgba(199, 210, 254, 0.2);
+}
+
+/* Star twinkle animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Floating animation for decorative elements */
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.animate-float-up {
+  animation: float-up 6s ease-in-out infinite;
+}
