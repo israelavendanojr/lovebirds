@@ -3,6 +3,7 @@ import CountdownTimer from '@/components/Calendar/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
 import CalendarView from '@/components/Calendar/CalendarView';
 import EnvelopeLetter from '@/components/Letter/EnvelopeLetter';
+import RelationshipTimeline from '@/components/RelationshipTimeline';
 import StarfieldGallery from '@/components/Photos/StarfieldGallery';
 import ThoughtGenerator from '@/components/ThoughtGenerator';
 
@@ -36,6 +37,7 @@ const App = () => {
       </div>
 
       
+      <RelationshipTimeline />
     </main>
     </div>
   );
