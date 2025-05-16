@@ -35,47 +35,54 @@ const LetterTimeline = () => {
   };
 
   return (
-    <div className="space-y-12">
-      {letters.map((letter) => (
-        <div key={letter.id} className="relative">
-          {/* Removed the dot */}
+    <section className="relative w-full max-w-3xl mx-auto px-4 py-12">
+      {/* Title */}
+      <h2 className="text-center text-3xl font-dancing text-pink-200 mb-12 glow-soft">
+        Our Letters 💌
+      </h2>
 
-          {/* Title button */}
-          <button
-            onClick={() => toggleLetter(letter.id, letter.file)}
-            className={`block w-fit text-left font-dancing text-lg text-pink-200 hover:text-pink-100 transition-all ${
-              letter.sender === 'you' ? 'ml-auto pr-4' : 'pl-4'
-            }`}
-          >
-            {letter.title} <span className="text-sm text-pink-400">({letter.date})</span>
-          </button>
+      {/* Vertical line */}
+      <div className="absolute left-1/2 top-0 h-full w-px bg-pink-200/10 transform -translate-x-1/2" />
 
-          {/* Letter content */}
-          {openLetterId === letter.id && (
-            <motion.div
-            className={`mt-2 w-full max-w-md p-6 rounded-2xl shadow-[0_0_30px_rgba(255,192,203,0.2)] border border-pink-200/20 backdrop-blur-md bg-white/10 text-pink-100 transition-all ${
-              letter.sender === 'you' ? 'ml-auto' : ''
-            }`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1}}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
-            <p className="whitespace-pre-wrap text-sm leading-relaxed font-dancing tracking-wide">
-              {letterContents[letter.id]}
-            </p>
+      <div className="space-y-12 relative z-10">
+        {letters.map((letter) => (
+          <div key={letter.id} className="relative">
+            {/* Title button */}
             <button
-              onClick={() => setOpenLetterId(null)}
-              className="text-xs text-pink-300 mt-4 hover:text-pink-100 transition"
+              onClick={() => toggleLetter(letter.id, letter.file)}
+              className={`block w-fit text-left font-dancing text-lg text-pink-200 hover:text-pink-100 transition-all ${
+                letter.sender === 'you' ? 'ml-auto pr-4' : 'pl-4'
+              }`}
             >
-              Close
+              {letter.title} <span className="text-sm text-pink-400">({letter.date})</span>
             </button>
-          </motion.div>
-          
-          )}
-        </div>
-      ))}
-    </div>
+
+            {/* Letter modal */}
+            {openLetterId === letter.id && (
+              <motion.div
+                className={`mt-2 w-full max-w-md p-6 rounded-2xl shadow-[0_0_30px_rgba(255,192,203,0.3)] border border-pink-200/20 backdrop-blur-md bg-white/10 text-pink-100 transition-all ${
+                  letter.sender === 'you' ? 'ml-auto' : ''
+                }`}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
+                <p className="whitespace-pre-wrap text-sm leading-relaxed font-dancing tracking-wide">
+                  {letterContents[letter.id]}
+                </p>
+                <button
+                  onClick={() => setOpenLetterId(null)}
+                  className="text-xs text-pink-300 mt-4 hover:text-pink-100 transition"
+                >
+                  Close
+                </button>
+              </motion.div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

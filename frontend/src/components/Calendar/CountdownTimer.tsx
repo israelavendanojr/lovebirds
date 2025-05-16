@@ -40,7 +40,7 @@ const CountdownTimer = ({ calendarDates }: Props) => {
 <div className="flex flex-col items-center justify-center text-center space-y-2">
   {!isToday && (
     <p className="text-pink-200 text-lg italic">
-      Counting down to our next special day...
+      Counting down to the next time I get to see you...
     </p>
   )}
 
