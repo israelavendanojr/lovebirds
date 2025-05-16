@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Remove calendar background */
-.react-calendar {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
+@layer base {
+  /* Remove calendar background */
+  .react-calendar {
+    @apply bg-transparent border-none shadow-none;
+  }
 
-/* default text color for weekend days */
-.react-calendar__month-view__days__day--weekend {
-    color: inherit !important; 
-}
+  /* Weekend text color same as normal */
+  .react-calendar__month-view__days__day--weekend {
+    @apply text-inherit;
+  }
 
-/* hide days from previous and next months */
-.hidden-day {
-    opacity: 0;
+  /* Hide days from previous/next months */
+  .hidden-day {
+    @apply opacity-0;
+  }
+
+  /* Remove yellow highlight from current day */
+  .react-calendar__tile--now {
+    @apply bg-transparent text-inherit font-normal;
+  }
 }
