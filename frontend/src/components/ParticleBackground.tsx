@@ -32,10 +32,10 @@ export function ParticleBackground() {
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
-    
-      // 💥 Fix: Reset before scaling again
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      
+      ctx.setTransform(1, 0, 0, 1, 0, 0); // reset transform
       ctx.scale(dpr, dpr);
+      
     };
     
     // Initial resize
@@ -122,10 +122,10 @@ export function ParticleBackground() {
         p.y += p.speedY;
 
         // Wrap around edges
-        if (p.x < -20) p.x = canvas.width + 20;
-        if (p.x > canvas.width + 20) p.x = -20;
-        if (p.y < -20) p.y = canvas.height + 20;
-        if (p.y > canvas.height + 20) p.y = -20;
+        if (p.x < -20) p.x = window.innerWidth + 20;
+        if (p.x > window.innerWidth + 20) p.x = -20;
+        if (p.y < -20) p.y = window.innerHeight + 20;
+        if (p.y > window.innerHeight + 20) p.y = -20;
 
         // Draw particle
         ctx.beginPath();
@@ -202,7 +202,7 @@ export function ParticleBackground() {
   return (
     <div 
       style={{ 
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         width: '100vw',
@@ -215,7 +215,7 @@ export function ParticleBackground() {
       <canvas
         ref={canvasRef}
         style={{
-          position: 'absolute',
+          position: 'fixed',
           top: 0,
           left: 0,
           width: '100%',

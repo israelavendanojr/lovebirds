@@ -3,9 +3,8 @@ import CountdownTimer from '@/components/Calendar/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
 import CalendarView from '@/components/Calendar/CalendarView';
 import EnvelopeLetter from '@/components/Letter/EnvelopeLetter';
-import PhotoCatalog from '@/components/Photos/PhotoCatalog';
+import StarfieldGallery from '@/components/Photos/StarfieldGallery';
 import ThoughtGenerator from '@/components/ThoughtGenerator';
-
 
 const App = () => {
   return (
@@ -17,18 +16,27 @@ const App = () => {
       <ParticleBackground />
 
       {/* Main content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12 space-y-16">
+      
+      <div className="w-full max-w-xl text-center">
         <ThoughtGenerator />
+      </div>
 
+      <div className="w-full max-w-md">
         <CountdownTimer calendarDates={calendarDates} />
+      </div>
+      
+      <div className="w-full max-w-4xl">
+        <StarfieldGallery />
+      </div>
 
-        <div className="w-full max-w-4xl mx-auto overflow-hidden">
-          <PhotoCatalog />
-        </div>
+      
+      <div className="w-full max-w-3xl">
         <CalendarView calendarDates={calendarDates} />
-        
-      </main>
+      </div>
 
+      
+    </main>
     </div>
   );
 };

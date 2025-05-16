@@ -37,16 +37,28 @@ const CountdownTimer = ({ calendarDates }: Props) => {
   }, [calendarDates]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      {isToday ? (
-        <h2 className="text-3xl font-bold text-pink-300 animate-pulse">🎉 Today is a Special Day! 🎉</h2>
-      ) : (
-        <div className="flex flex-col items-center">
-          <div className="text-7xl font-bold text-white mb-2">{daysLeft}</div>
-          <div className="text-2xl text-pink-300">{daysLeft === 1 ? 'Day' : 'Days'}</div>
-        </div>
-      )}
+<div className="flex flex-col items-center justify-center text-center space-y-2">
+  {!isToday && (
+    <p className="text-pink-200 text-lg italic">
+      Counting down to our next special day...
+    </p>
+  )}
+
+  {isToday ? (
+    <div className="p-4 border border-pink-400/30 rounded-xl bg-white/5 backdrop-blur-sm">
+      <h2 className="text-3xl font-bold text-pink-300 animate-bounce drop-shadow-md">
+        🎉 Today is a Special Day! 🎉
+      </h2>
     </div>
+  ) : (
+    <div className="flex flex-col items-center">
+      <div className="text-7xl font-bold text-white mb-2 drop-shadow-[0_0_15px_rgba(255,192,203,0.5)] animate-pulseSlow">
+        {daysLeft}
+      </div>
+      <div className="text-2xl text-pink-300">{daysLeft === 1 ? 'Day' : 'Days'}</div>
+    </div>
+  )}
+</div>
   );
 };
 
