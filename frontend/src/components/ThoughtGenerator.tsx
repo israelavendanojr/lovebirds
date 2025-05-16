@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const thoughts = [
-  "I want to hold your hand everytime I walk down the road.",
+  "I want to kiss your forehead every night before bed",
   "I want to pour you a plate everytime I make a meal",
   "I want to sniff your hair every time I wake up",
   "I want to be distracted everytime I study alone",

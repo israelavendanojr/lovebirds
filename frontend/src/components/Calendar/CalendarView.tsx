@@ -37,7 +37,9 @@ const CalendarView = ({ calendarDates }: Props) => {
 
   return (
     <div className="relative w-full">
-      <h2 className="text-xl font-semibold mb-4 text-center text-pink-200 glow-soft">Our Meeting Dates</h2>
+      <h2 className="text-center font-bold text-3xl text-pink-200 mb-6 glow-soft">
+        Our Meeting Dates
+      </h2>
       <Calendar
         tileContent={tileContent}
         calendarType="gregory"

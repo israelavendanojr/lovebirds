@@ -9,7 +9,7 @@ import ThoughtGenerator from '@/components/ThoughtGenerator';
 
 const App = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden text-white font-sans">
+    <div className="relative min-h-screen overflow-hidden text-white font-quicksand">
       {/* Background gradient layer */}
       <div className="absolute inset-0 z-[-2] bg-gradient-to-b from-[#1a1c2c] to-[#2f2a4f]" />
 
@@ -18,10 +18,9 @@ const App = () => {
 
       {/* HEADER */}
       <header className="w-full text-center py-8">
-        <h1 className="text-4xl font-dancing text-pink-200 glow-soft">
-        ✨My Little Universe Of You✨
+        <h1 className="text-4xl font-bold text-pink-200 glow-soft">
+        My Little Universe Of You
         </h1>
-        <p className="text-pink-300 text-sm mt-2">I love you to the moon and back, and I would give you the stars</p>
       </header>
 
       {/* Main content */}

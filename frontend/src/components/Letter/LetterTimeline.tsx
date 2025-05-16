@@ -37,7 +37,7 @@ const LetterTimeline = () => {
   return (
     <section className="relative w-full max-w-3xl mx-auto px-4 py-12">
       {/* Title */}
-      <h2 className="text-center text-3xl font-dancing text-pink-200 mb-12 glow-soft">
+      <h2 className="text-center font-bold text-3xl font-dancing text-pink-200 mb-12 glow-soft">
         Our Letters 💌
       </h2>
 

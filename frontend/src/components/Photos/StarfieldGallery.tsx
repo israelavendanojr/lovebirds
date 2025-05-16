@@ -18,8 +18,9 @@ const StarfieldGallery = () => {
 
   return (
     <section className="relative z-10 w-full max-w-5xl mx-auto px-4 py-12">
-      <h2 className="text-center text-pink-300 font-dancing text-3xl mb-8">Starfield of Memories</h2>
-
+      <h2 className="text-center font-bold text-3xl text-pink-200 mb-6 glow-soft">
+        A Starfield of Memories
+      </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 group">
         {photos.map((photo, idx) => (
           <StarCard
@@ -54,8 +55,8 @@ const StarfieldGallery = () => {
     alt={activePhoto.caption}
     className="w-full max-h-[60vh] object-contain rounded mb-4 shadow-[0_0_10px_rgba(255,192,203,0.3)]"
   />
-  <h3 className="text-lg font-bold text-pink-300 font-dancing mb-2">{activePhoto.caption}</h3>
-  <p className="text-sm font-dancing tracking-wide leading-relaxed drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
+  <h3 className="text-lg font-bold text-pink-300 mb-2">{activePhoto.caption}</h3>
+  <p className="text-sm tracking-wide leading-relaxed drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
     {activePhoto.context || 'A moment I hold dearly.'}
   </p>
   <button

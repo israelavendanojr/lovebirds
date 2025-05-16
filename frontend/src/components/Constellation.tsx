@@ -97,7 +97,7 @@ const Constellation = () => {
   return (
     <div className="relative w-full h-[700px]">
       {/* Title */}
-      <h2 className="text-center text-3xl font-dancing text-pink-200 mb-6 glow-soft">
+      <h2 className="text-center font-bold text-3xl text-pink-200 mb-6 glow-soft">
         Our Taurus Constellation
       </h2>
 
