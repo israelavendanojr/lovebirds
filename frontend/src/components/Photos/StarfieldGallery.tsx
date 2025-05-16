@@ -42,8 +42,8 @@ const StarfieldGallery = () => {
             exit={{ opacity: 0 }}
             onClick={() => setActivePhoto(null)}
           >
-            <motion.div
-  className="max-w-md w-full p-6 rounded-2xl border border-pink-200/30 shadow-[0_0_15px_rgba(255,192,203,0.4)] text-pink-100 bg-white/10 backdrop-blur-md transition-all relative z-10"
+<motion.div
+  className="max-w-md w-full p-6 rounded-2xl border border-pink-200/30 shadow-[0_0_15px_rgba(255,192,203,0.4)] text-pink-100 bg-white/5 transition-all relative z-10"
   initial={{ scale: 0.95 }}
   animate={{ scale: 1 }}
   exit={{ scale: 0.95 }}

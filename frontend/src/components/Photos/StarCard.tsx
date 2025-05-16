@@ -11,13 +11,13 @@ type Props = {
 const StarCard = ({ src, caption, context, onClick }: Props) => {
   return (
     <motion.div
-      className="relative rounded-lg overflow-hidden shadow-xl cursor-pointer transition duration-300 group-hover:blur-sm hover:!blur-none"
+      className="relative rounded-lg overflow-hidden shadow-xl cursor-pointer transition duration-300"
       onClick={onClick}
       whileHover={{ scale: 1.1 }}
     >
       <img src={src} alt={caption} className="w-full h-full object-cover rounded-lg" />
       {caption && (
-        <div className="absolute bottom-2 left-2 right-2 bg-black/40 text-pink-200 text-sm p-1 rounded font-dancing text-center backdrop-blur-sm">
+        <div className="absolute bottom-2 left-2 right-2 bg-black/40 text-pink-200 text-sm p-1 rounded font-dancing text-center">
           {caption}
         </div>
       )}
