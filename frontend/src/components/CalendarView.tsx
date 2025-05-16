@@ -1,6 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import HeartIcon from './HeartIcon';
 
 type Props = {
   calendarDates: Date[];
@@ -16,22 +17,24 @@ const isSameDate = (date1: Date, date2: Date) => {
 
 const CalendarView = ({ calendarDates }: Props) => {
   const tileContent = ({ date, view }: { date: Date; view: string }) => {
-    if (view === 'month' && calendarDates.some(d => isSameDate(d, date))) {
+    if (view !== 'month') return null;
+  
+    const now = new Date();
+    now.setHours(0, 0, 0, 0); // Normalize today
+    const isSpecialDay = calendarDates.some(d => isSameDate(d, date));
+    const isToday = isSameDate(date, now);
+  
+    if (isSpecialDay || isToday) {
       return (
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#f472b6" viewBox="0 0 24 24" className="w-6 h-6 animate-pulse">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-            2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
-            4.5 2.09C13.09 3.81 14.76 3 16.5 
-            3 19.58 3 22 5.42 22 8.5c0 
-            3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </div>
-    );
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <HeartIcon color={isToday ? '#60a5fa' : '#f472b6'} />
+        </div>
+      );
     }
+  
     return null;
   };
-
+  
   return (
     <div className="rounded-2xl p-6 shadow-xl border border-pink-200/10">
       <h2 className="text-xl font-semibold mb-4 text-pink-200 text-center">Calendar</h2>
