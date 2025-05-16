@@ -2,6 +2,8 @@ import { ParticleBackground } from '@/components/ParticleBackground';
 import CountdownTimer from '@/components/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
 import CalendarView from '@/components/CalendarView';
+import EnvelopeLetter from '@/components/EnvelopeLetter';
+
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <CountdownTimer calendarDates={calendarDates} />
 
         <CalendarView calendarDates={calendarDates} />
+        
+        {/* <EnvelopeLetter file="letter1.txt" /> */}
       </main>
 
     </div>
