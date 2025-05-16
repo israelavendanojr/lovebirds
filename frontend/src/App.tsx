@@ -1,8 +1,9 @@
 import { ParticleBackground } from '@/components/ParticleBackground';
-import CountdownTimer from '@/components/CountdownTimer';
+import CountdownTimer from '@/components/Calendar/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
-import CalendarView from '@/components/CalendarView';
-import EnvelopeLetter from '@/components/EnvelopeLetter';
+import CalendarView from '@/components/Calendar/CalendarView';
+import EnvelopeLetter from '@/components/Letter/EnvelopeLetter';
+import PhotoCatalog from '@/components/Photos/PhotoCatalog';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <CalendarView calendarDates={calendarDates} />
         
         {/* <EnvelopeLetter file="letter1.txt" /> */}
+        <PhotoCatalog />
       </main>
 
     </div>

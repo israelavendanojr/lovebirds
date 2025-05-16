@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import HeartIcon from './HeartIcon';
+import HeartIcon from '@/components/Calendar/HeartIcon';
 
 type Props = {
   calendarDates: Date[];

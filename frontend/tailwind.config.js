@@ -44,6 +44,15 @@ module.exports = {
         'twilight': '#1a1b3a',
         'cosmic': '#2d1b50',
       },
+      keyframes: {
+        carousel: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        carousel: 'carousel 20s linear infinite',
+      },
     },
   },
   plugins: [
