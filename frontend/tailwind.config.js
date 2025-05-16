@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'dancing': ['Dancing Script', 'cursive'],
         'poppins': ['Poppins', 'sans-serif'],
       },
       zIndex: {
@@ -47,11 +46,11 @@ module.exports = {
       keyframes: {
         carousel: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        carousel: 'carousel 20s linear infinite',
+        carousel: 'carousel 60s linear infinite',
       },
     },
   },
