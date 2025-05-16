@@ -10,9 +10,9 @@ type Letter = {
 };
 
 const letters: Letter[] = [
-  { id: 1, sender: 'you', date: 'Sep 2023', file: '/letters/letter-1.txt', title: 'To My Star 💫' },
-  { id: 2, sender: 'her', date: 'Oct 2023', file: '/letters/letter-2.txt', title: 'Seattle Breeze 🏙️' },
-  { id: 3, sender: 'you', date: 'Nov 2023', file: '/letters/letter-3.txt', title: 'Counting Days ⏳' },
+  { id: 1, sender: 'you', date: 'Mar 2025', file: '/letters/letter-1.txt', title: 'Letter 1 💫' },
+  { id: 2, sender: 'her', date: 'Apr 2025', file: '/letters/letter-2.txt', title: 'Letter 2 💫' },
+  { id: 3, sender: 'you', date: 'Apr 2025', file: '/letters/letter-3.txt', title: 'Letter 3 💫' },
 ];
 
 const LetterTimeline = () => {

@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 
 const thoughts = [
-  "I want to think about your smile every time I blink.",
-  "I want to remember how you laugh every time the wind blows.",
-  "I want to feel your hand in mine every sunset.",
-  "I want to relive our memories every step I take.",
-  "I want to hear your voice in every quiet moment.",
-  "I want to think of the way you say my name with every page I turn.",
-  "I want to imagine us cooking together with every passing hour.",
-  "I want to look into your eyes with every star I see.",
+  "I want to hold your hand everytime I walk down the road.",
+  "I want to pour you a plate everytime I make a meal",
+  "I want to sniff your hair every time I wake up",
+  "I want to be distracted everytime I study alone",
+  "I want to hear your voice on those lonely days.",
+  "I want to look into your eyes everytime I see the stars",
 ];
 
 const ThoughtGenerator = () => {
