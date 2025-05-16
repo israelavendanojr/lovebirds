@@ -140,23 +140,33 @@ const Constellation = () => {
       ))}
 
       {/* Info card */}
-      {active !== null && (
-        <motion.div
-          className="absolute left-1/2 top-full mt-6 transform -translate-x-1/2 bg-white text-black rounded-lg p-4 shadow-xl w-[280px] z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <h3 className="text-pink-500 font-dancing text-xl mb-1">{milestones[active - 1].title}</h3>
-          <div className="text-sm text-pink-600">{milestones[active - 1].date}</div>
-          <p className="text-sm mt-2">{milestones[active - 1].detail}</p>
-          <button
-            onClick={() => setActive(null)}
-            className="absolute top-2 right-3 text-gray-400 hover:text-black"
-          >
-            ×
-          </button>
-        </motion.div>
-      )}
+      {active !== null && (() => {
+  const selected = milestones.find(m => m.id === active);
+  if (!selected) return null;
+
+  return (
+    <motion.div
+      className="absolute bg-white text-black rounded-lg p-4 shadow-xl w-[280px] z-20"
+      style={{
+        top: `calc(${selected.y}% - 80px)`,
+        left: `${selected.x}%`,
+        transform: 'translate(-50%, -100%)',
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <h3 className="text-pink-500 font-dancing text-xl mb-1">{selected.title}</h3>
+      <div className="text-sm text-pink-600">{selected.date}</div>
+      <p className="text-sm mt-2">{selected.detail}</p>
+      <button
+        onClick={() => setActive(null)}
+        className="absolute top-2 right-3 text-gray-400 hover:text-black"
+      >
+        ×
+      </button>
+    </motion.div>
+  );
+})()}
     </div>
   );
 };

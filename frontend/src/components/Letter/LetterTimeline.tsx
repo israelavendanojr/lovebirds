@@ -59,25 +59,25 @@ const LetterTimeline = () => {
 
             {/* Letter modal */}
             {openLetterId === letter.id && (
-              <motion.div
-                className={`mt-2 w-full max-w-md p-6 rounded-2xl shadow-[0_0_30px_rgba(255,192,203,0.3)] border border-pink-200/20 backdrop-blur-md bg-white/10 text-pink-100 transition-all ${
-                  letter.sender === 'you' ? 'ml-auto' : ''
-                }`}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              >
-                <p className="whitespace-pre-wrap text-sm leading-relaxed font-dancing tracking-wide">
-                  {letterContents[letter.id]}
-                </p>
-                <button
-                  onClick={() => setOpenLetterId(null)}
-                  className="text-xs text-pink-300 mt-4 hover:text-pink-100 transition"
-                >
-                  Close
-                </button>
-              </motion.div>
+                <motion.div
+                    className={`mt-2 w-full max-w-md p-6 rounded-2xl border border-pink-200/30 shadow-[0_0_15px_rgba(255,192,203,0.4)] text-pink-100 transition-all ${
+                        letter.sender === 'you' ? 'ml-auto' : ''
+                    }`}
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    >
+                    <p className="whitespace-pre-wrap text-sm leading-relaxed font-dancing tracking-wide drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
+                        {letterContents[letter.id]}
+                    </p>
+                    <button
+                        onClick={() => setOpenLetterId(null)}
+                        className="text-xs text-pink-300 mt-4 hover:text-pink-100 transition"
+                    >
+                        Close
+                    </button>
+                </motion.div>
             )}
           </div>
         ))}
