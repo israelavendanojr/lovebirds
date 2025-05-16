@@ -139,40 +139,40 @@ const Constellation = () => {
         </motion.div>
       ))}
 
-{/* Polished Floating Modal */}
-{active !== null && (() => {
-  const selected = milestones.find(m => m.id === active);
-  if (!selected) return null;
+      {/* Polished Floating Modal */}
+      {active !== null && (() => {
+        const selected = milestones.find(m => m.id === active);
+        if (!selected) return null;
 
-  return (
-    <motion.div
-      className="absolute w-[280px] p-6 rounded-2xl border border-pink-200/30 shadow-[0_0_15px_rgba(255,192,203,0.4)] text-pink-100 bg-transparent backdrop-blur-none transition-all z-20"
-      style={{
-        top: `calc(${selected.y}% - 80px)`,
-        left: `${selected.x}%`,
-        transform: 'translate(-50%, -100%)',
-      }}
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-    >
-      <h3 className="text-xl font-dancing text-pink-300 mb-1 drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
-        {selected.title}
-      </h3>
-      <div className="text-sm text-pink-400 mb-2">{selected.date}</div>
-      <p className="text-sm font-dancing tracking-wide leading-relaxed drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
-        {selected.detail}
-      </p>
-      <button
-        onClick={() => setActive(null)}
-        className="absolute top-2 right-3 text-pink-300 hover:text-white transition text-sm"
-      >
-        ×
-      </button>
-    </motion.div>
-  );
-})()}
+        return (
+          <motion.div
+            className="absolute w-[280px] p-6 rounded-2xl border border-pink-200/30 shadow-[0_0_15px_rgba(255,192,203,0.4)] text-pink-100 bg-transparent backdrop-blur-none transition-all z-20"
+            style={{
+              top: `calc(${selected.y}% - 80px)`,
+              left: `${selected.x}%`,
+              transform: 'translate(-50%, -100%)',
+            }}
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <h3 className="text-xl font-dancing text-pink-300 mb-1 drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
+              {selected.title}
+            </h3>
+            <div className="text-sm text-pink-400 mb-2">{selected.date}</div>
+            <p className="text-sm font-dancing tracking-wide leading-relaxed drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]">
+              {selected.detail}
+            </p>
+            <button
+              onClick={() => setActive(null)}
+              className="absolute top-2 right-3 text-pink-300 hover:text-white transition text-sm"
+            >
+              ×
+            </button>
+          </motion.div>
+        );
+      })()}
     </div>
   );
 };
