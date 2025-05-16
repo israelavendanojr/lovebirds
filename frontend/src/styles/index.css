@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Remove calendar background */
 .react-calendar {
   background: transparent;
@@ -40,3 +41,14 @@
   text-decoration: none;
 }
 
+
+/* Glow effect on just the day number text */
+.react-calendar__tile abbr {
+  text-shadow: 0 0 10px rgba(244, 114, 182, 0.4), 0 0 10px rgba(244, 114, 182, 0.3);
+  color: #fbcfe8; /* Optional: soft pink */
+}
+
+/* Optional hover enhancement */
+.react-calendar__tile:hover abbr {
+  text-shadow: 0 0 6px rgba(244, 114, 182, 0.6), 0 0 10px rgba(244, 114, 182, 0.5);
+}

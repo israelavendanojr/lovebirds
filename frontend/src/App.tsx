@@ -2,8 +2,8 @@ import { ParticleBackground } from '@/components/ParticleBackground';
 import CountdownTimer from '@/components/Calendar/CountdownTimer';
 import { calendarDates } from '@/data/calendar_dates';
 import CalendarView from '@/components/Calendar/CalendarView';
-import EnvelopeLetter from '@/components/Letter/EnvelopeLetter';
-import RelationshipTimeline from '@/components/RelationshipTimeline';
+import Constellation from '@/components/Constellation';
+import LetterTimeline from '@/components/Letter/LetterTimeline';
 import StarfieldGallery from '@/components/Photos/StarfieldGallery';
 import ThoughtGenerator from '@/components/ThoughtGenerator';
 
@@ -36,8 +36,14 @@ const App = () => {
         <CalendarView calendarDates={calendarDates} />
       </div>
 
+      <div className="w-full max-w-3xl">
+        <Constellation />
+      </div>
       
-      <RelationshipTimeline />
+      <div className="w-full max-w-3xl">
+        <LetterTimeline />
+      </div>
+
     </main>
     </div>
   );
